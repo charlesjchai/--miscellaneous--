@@ -1,0 +1,21 @@
+#!/bin/bash
+# Creates a new coding project directory
+# Usage: init_project [c | c++ | java | python | rust] <project_name>
+
+if [ $# -ne 2 ]; then
+	echo "Usage: $0 [c | c++ | java | python | rust] <project_name>"
+	exit 1
+fi # Checks for invalid arguments
+LANG=`echo "$1" | tr 'A-Z' 'a-z'`
+TITLE="$2"
+RESOURCES="$HOME/Coding/Other/--miscellaneous--/init-project/resources"
+
+case "$LANG" in
+    "c" | "c++" | "java" | "python" | "rust")
+		cp -r "$RESOURCES/$LANG" $TITLE
+        ;;
+    *)
+        echo "ERROR: $LANG is not a recognized programming language."
+        exit 1
+        ;;
+esac

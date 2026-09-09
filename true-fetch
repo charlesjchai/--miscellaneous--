@@ -1,0 +1,118 @@
+#!/usr/bin/env bash
+
+BACKUP='██████████████████████████████████    OS: Slop
+██              ██              ██
+██   █████████████       ████   ██
+██   ██                    ██   ██
+██   ██                    ██   ██
+██   ██                    ██   ██
+██   ██                    ██   ██
+███████                    ██   ██
+██   ██                    ██   ██
+██   ██                    ██   ██
+██   ██                    ██   ██
+██   ██                    ██   ██
+██   ████████████████████████   ██
+██              ██              ██
+██████████████████   █████████████
+'
+clear
+OS=$(fastfetch -s os -l none);
+OUTPUT=$(fastfetch -s " " || (echo "why u no have fastfetch" >&2; OS=Omarchy; echo "$BACKUP"))
+LENGTH=$(wc -l <<< "$OUTPUT")
+
+stty -echo
+# Make sure the user cannot escape
+trap '' HUP INT QUIT ILL TRAP ABRT EMT FPE BUS SEGV SYS PIPE ALRM TERM URG CONT CHLD IO XCPU XFSZ VTALRM PROF WINCH INFO USR1 USR2
+
+for ((i=1; i<=LENGTH; i+=1))
+do
+    MAX=$((i + 0))
+    if (( MAX > LENGTH )); then
+        MAX=LENGTH
+    fi
+    sed -n "${i},${MAX}p" <<< "$OUTPUT"
+    sleep $(echo "0.$RANDOM")
+    sleep $(echo "0.$RANDOM")
+done
+stty echo
+
+case "$OS" in
+    *macOS*)
+        echo 'apple? lol, go bathe in your golden bathtub of PROPRIETARY software'
+        ;;
+    *"Mac OS"* | *"OS X"*)
+        echo 'lmao, u rich AND outdated. update the system now!11!'
+        ;;
+    *Ubuntu*)
+        echo 'bro, ubuntu is legit the most generic and boringest linux distro ever'
+        ;;
+    *Mint*)
+        echo 'mint?? ur such noob, *git\* gud'
+        ;;
+    *Omarchy*)
+        echo 'pure slop distro'
+        ;;
+    *Fedora*)
+        echo 'please tell me you'\''re not using workstation'
+        ;;
+    *KDE*)
+        echo 'bro is the guy who actually uses Akregator'
+        ;;
+    *Debian*)
+        echo 'debian? nahh, bro is 111825 years old'
+        ;;
+    *Pop*)
+        echo 'bet you wanted those PROPRIETARY nvidia drivers'
+        ;;
+    *Arch*)
+        echo 'i use gentoo btw'
+        ;;
+    *Gentoo*)
+        echo 'i use LFS btw'
+        ;;
+    *LFS* | *Scratch*)
+        echo 'i use... uhh... oh no'
+        ;;
+    *MX* | *antiX* | *"Tiny Core"*)
+        echo 'bro be running linux on bros farm potatoes for a living'
+        ;;
+    *Cachy* | *Bazzite* | *Nobara*)
+        echo 'its a gamer run away!1!11!'
+        ;;
+    *Zorin*)
+        echo 'i applaud you from moving from microslop, newcomer'
+        ;;
+    *Endeavour*)
+        echo '"endeavoUr" welcome to canada lmao'
+        ;;
+    *FreeBSD*)
+        echo 'bro is running a whole zfs raid array with this one'
+        ;;
+    *OpenBSD*)
+        echo 'bro be hiding from the fbi with openSSHHHHHHHHHHHHHHHhhhhhh.......'
+        ;;
+    *NetBSD*)
+        echo 'are you running this on a cesfic m68k'
+        ;;
+    *Manjaro*)
+        echo 'bro took the easy way out of arch'
+        ;;
+    *Lite*)
+        echo 'mint is better than lite'
+        ;;
+    *Kali*)
+        echo 'HELP BROS GONNA HACK US RUNNNNNNN'
+        ;;
+    *"Red Hat"* | *RedHat* | *RHEL*)
+        echo 'bro is running a whole server room with this one, just use rocky bro'
+        ;;
+    *Rocky*)
+        echo 'is that a project hail mary reference'
+        ;;
+
+    *)
+        echo 'niche ahh distro'
+        ;;
+esac
+exit 67
