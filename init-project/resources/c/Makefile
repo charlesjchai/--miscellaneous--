@@ -1,15 +1,18 @@
-CC := clang
-CFLAGS := -std=c23 -g -Wall
-BIN := main
+CC 		:= cc
+CFLAGS 		:= -std=c23 -g -Wall -Wextra
+RELEASEFLAGS 	:= -std=c23 -O2
+TARGET 		:= main
 
-all: $(BIN)
+all: $(TARGET)
 
-compile: main.c
-	$(CC) $(CFLAGS) *.c -o $(BIN)
-run: compile
-	./$(BIN)
+$(TARGET): *.c
+	$(CC) $(CFLAGS) $^ -o $@
+release: *.c
+	$(CC) $(RELEASEFLAGS) $^ -o $(TARGET)
+run: $(TARGET)
+	./$(TARGET)
 
 clean:
-	rm -rf $(BIN) *.dSYM
+	rm -rf $(TARGET) *.dSYM
 
-.PHONY: all compile run clean
+.PHONY: all run release clean
