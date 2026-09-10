@@ -25,12 +25,13 @@ int main(int argc, char* argv[]) {
 		fprintf(stderr, "Usage: %s [-f]\n", argv[0]);
 		return 1;
 	}
-	char ans[5];
+	char ans;
 	if (argc == 1) {
 		// Warn the user
 		printf("WARNING: Running this program will probably eat all of your computer's RAM and crash it. Are you sure you want to continue? (add flag -f to disable warning)\n[y/N]: ");
-		scanf("%4s", ans);
-		if (ans[0] != 'y') {
+		fflush(stdout);
+		ans = getchar();
+		if (ans != 'y') {
 			printf("\nHalting...\n");
 			return 0;
 		}
