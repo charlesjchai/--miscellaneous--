@@ -1,2 +1,5 @@
 .DS_Store
 .miscellaneous-committer-daemon
+*.dSYM
+/crasher/crash
+

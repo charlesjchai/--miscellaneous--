@@ -18,12 +18,12 @@ BACKUP='████████████████████████
 '
 clear
 OS=$(fastfetch -s os -l none);
-OUTPUT=$(fastfetch -s " " || (echo "why u no have fastfetch" >&2; OS=Omarchy; echo "$BACKUP"))
+OUTPUT=$(fastfetch --pipe false -s " " || (echo "why u no have fastfetch" >&2; OS=Omarchy; echo "$BACKUP"))
 LENGTH=$(wc -l <<< "$OUTPUT")
 
 stty -echo
 # Make sure the user cannot escape
-trap '' HUP INT QUIT ILL TRAP ABRT EMT FPE BUS SEGV SYS PIPE ALRM TERM URG CONT CHLD IO XCPU XFSZ VTALRM PROF WINCH INFO USR1 USR2
+trap '' HUP INT QUIT ILL TRAP ABRT FPE BUS SEGV SYS PIPE ALRM TERM URG CONT CHLD IO XCPU XFSZ VTALRM PROF WINCH USR1 USR2
 
 for ((i=1; i<=LENGTH; i+=1))
 do
@@ -56,14 +56,23 @@ case "$OS" in
     *Fedora*)
         echo 'please tell me you'\''re not using workstation'
         ;;
+    *NixOS*)
+        echo 'bro has 5000 hours spent in /etc/nixos/configuration.json'
+        ;;
     *KDE*)
         echo 'bro is the guy who actually uses Akregator'
         ;;
     *Debian*)
         echo 'debian? nahh, bro is 111825 years old'
         ;;
+    *Slackware*)
+        echo 'bro wants to manage dependencies manually'
+        ;;
     *Pop*)
         echo 'bet you wanted those PROPRIETARY nvidia drivers'
+        ;;
+    *Void*)
+        echo 'i use arch btw'
         ;;
     *Arch*)
         echo 'i use gentoo btw'
@@ -74,7 +83,10 @@ case "$OS" in
     *LFS* | *Scratch*)
         echo 'i use... uhh... oh no'
         ;;
-    *MX* | *antiX* | *"Tiny Core"*)
+    *Alpine*)
+        echo 'stop slack(ware)ing and go back to testing the nodejs application in the docker container'
+        ;;
+    *MX* | *antiX* | *"Tiny Core"* | *Puppy*)
         echo 'bro be running linux on bros farm potatoes for a living'
         ;;
     *Cachy* | *Bazzite* | *Nobara*)
