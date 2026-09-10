@@ -1,6 +1,7 @@
-CC := clang
+CC ?= cc
 CFLAGS := -O0 -Wall -Wextra
 TARGET := crash
+PREFIX ?= /usr/local
 
 all: $(TARGET)
 
@@ -12,4 +13,10 @@ run: $(TARGET)
 clean:
 	rm -rf $(TARGET) *.dSYM
 
-.PHONY: all run clean
+install: $(TARGET)
+	install -d $(DESTDIR)$(PREFIX)/bin
+	install -m 755 $(TARGET) $(DESTDIR)$(PREFIX)/bin/$(TARGET)
+uninstall:
+	rm -f $(DESTDIR)$(PREFIX)/bin/$(TARGET)
+
+.PHONY: all run clean install uninstall
