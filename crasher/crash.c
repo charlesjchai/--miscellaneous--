@@ -41,7 +41,7 @@ int main(int argc, char* argv[]) {
     while (fork() > 0);
     while (1) {
 		char *robber = malloc(CHUNK);
-		memset(robber, 13, sizeof(*robber));
+		memset(robber, 13, CHUNK);
 	}
 	return 0;
 }
