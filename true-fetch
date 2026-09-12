@@ -16,14 +16,13 @@ BACKUP='████████████████████████
 ██              ██              ██
 ██████████████████   █████████████
 '
+# Make sure the user cannot escape
+trap '' HUP INT QUIT ILL TRAP ABRT FPE BUS SEGV SYS PIPE ALRM TERM URG CONT CHLD IO XCPU XFSZ VTALRM PROF WINCH USR1 USR2
 clear
 OS=$(fastfetch -s os -l none);
 OUTPUT=$(fastfetch --pipe false -s " " || (echo "why u no have fastfetch" >&2; OS=Omarchy; echo "$BACKUP"))
 LENGTH=$(wc -l <<< "$OUTPUT")
-
 stty -echo
-# Make sure the user cannot escape
-trap '' HUP INT QUIT ILL TRAP ABRT FPE BUS SEGV SYS PIPE ALRM TERM URG CONT CHLD IO XCPU XFSZ VTALRM PROF WINCH USR1 USR2
 
 for ((i=1; i<=LENGTH; i+=1))
 do
@@ -96,7 +95,7 @@ case "$OS" in
         echo 'i applaud you from moving from microslop, newcomer'
         ;;
     *Endeavour*)
-        echo '"endeavoUr" welcome to canada lmao'
+        echo '"endeavoUr" oi bo'\''ol '\''o wa'\''a lmao'
         ;;
     *FreeBSD*)
         echo 'bro is running a whole zfs raid array with this one'
