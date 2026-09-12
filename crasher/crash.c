@@ -31,7 +31,7 @@ int main(int argc, char* argv[]) {
 		printf("WARNING: Running this program will probably eat all of your computer's RAM and crash it. Are you sure you want to continue? (add flag -f to disable warning)\n[y/N]: ");
 		fflush(stdout);
 		ans = getchar();
-		if (ans != 'y') {
+		if (ans != 'y' && ans != 'Y') {
 			printf("\nHalting...\n");
 			return 0;
 		}
