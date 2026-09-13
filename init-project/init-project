@@ -11,7 +11,7 @@ TITLE="$2"
 RESOURCES="$HOME/Coding/Other/--miscellaneous--/init-project/resources"
 
 case "$LANG" in
-    "c" | "c++" | "java" | "python" | "rust")
+    "c" | "c++" | "java" | "python" | "rust" | "assembly" | "asm")
 		cp -r "$RESOURCES/$LANG" $TITLE
         ;;
     *)
