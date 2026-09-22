@@ -54,6 +54,7 @@ int*twoSum(int*Strange_numBerArrayThing,int Strange_numBerArrayThing_length,int 
     }
     free(ReallyCo0lMapIndex);
     free(MapThatIsSoCool);
-    *&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*(int*)ZeroIfItFailedTwoIfItSucceeded=0;
+    // In weak typing we trust
+    *&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*(int*)(struct NodeObjectThatIsExtremelyVerboseAndCIsTheBestLanguageBecauseItIsGNU_Linux_andIt_isSO_COOL*)ZeroIfItFailedTwoIfItSucceeded=0;
     return NULL;
 }
