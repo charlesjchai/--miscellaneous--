@@ -3,9 +3,9 @@
 #include <string.h>
 #include <signal.h>
 #include <unistd.h>
+#include <sys/types.h>
+
 #define CHUNK 1048576
-// Fork amount is 2^FORK_POWER
-#define FORK_POWER 8
 
 void shush_signals(void) {
     struct sigaction sa;
@@ -31,19 +31,17 @@ int main(int argc, char* argv[]) {
 		printf("WARNING: Running this program will probably eat all of your computer's RAM and crash it. Are you sure you want to continue? (add flag -f to disable warning)\n[y/N]: ");
 		fflush(stdout);
 		ans = getchar();
-		if (ans != 'y') {
+		if (ans != 'y' && ans != 'Y') {
 			printf("\nHalting...\n");
 			return 0;
 		}
 	}
 	printf("Ok.\n");
     shush_signals();
-    for (int i = 0; i < FORK_POWER; i++) {
-        fork();
-    }
+    while (fork() > 0);
     while (1) {
 		char *robber = malloc(CHUNK);
-		memset(robber, 13, sizeof(*robber));
+		memset(robber, 13, CHUNK);
 	}
 	return 0;
 }

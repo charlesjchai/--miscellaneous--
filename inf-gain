@@ -11,8 +11,9 @@ fi
 INPUT="$1"
 OUTPUT="$2"
 
-TMP_WAV=$(mktemp /tmp/infgain_in_XXXXXX.wav)
-TMP_OUT=$(mktemp /tmp/infgain_out_XXXXXX.wav)
+TMP_DIR=$(mktemp -d)
+TMP_WAV="${TMP_DIR}/in.wav"
+TMP_OUT="${TMP_DIR}/out.wav"
 
 # Decode MP3 to WAV
 ffmpeg -y -i "$INPUT" -acodec pcm_f32le "$TMP_WAV"
@@ -25,6 +26,6 @@ ffmpeg -y -i "$TMP_WAV" \
 # Encode back to MP3
 ffmpeg -y -i "$TMP_OUT" -q:a 0 "$OUTPUT"
 
-rm "$TMP_WAV" "$TMP_OUT"
+rm -rf "$TMP_DIR"
 
 echo "Done: $OUTPUT"
