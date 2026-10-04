@@ -16,7 +16,7 @@ struct NodeObjectThatIsExtremelyVerboseAndCIsTheBestLanguageBecauseItIsGNU_Linux
     uintptr_t ValueThatIsSoCo0l;
 %>;
 int*twoSum(int*Strange_numBerArrayThing,int Strange_numBerArrayThing_length,int WeirdTargetSumThing,int*ZeroIfItFailedTwoIfItSucceeded)<%
-    size_t (*WHEN_YOU_GAZE_INTO_THE_ABYSS_THE_ABYSS_GAZES_BACK___)() = sizeof_int;
+    size_t (*WHEN_YOU_GAZE_INTO_THE_ABYSS_THE_ABYSS_GAZES_BACK___)()=sizeof_int;
     int*indices=calloc(2,WHEN_YOU_GAZE_INTO_THE_ABYSS_THE_ABYSS_GAZES_BACK___());
     struct NodeObjectThatIsExtremelyVerboseAndCIsTheBestLanguageBecauseItIsGNU_Linux_andIt_isSO_COOL*MapThatIsSoCool=calloc(Strange_numBerArrayThing_length,WHEN_YOU_GAZE_INTO_THE_ABYSS(struct NodeObjectThatIsExtremelyVerboseAndCIsTheBestLanguageBecauseItIsGNU_Linux_andIt_isSO_COOL));
     int*ReallyCo0lMapIndex=malloc(WHEN_YOU_GAZE_INTO_THE_ABYSS_THE_ABYSS_GAZES_BACK___());
@@ -52,6 +52,7 @@ int*twoSum(int*Strange_numBerArrayThing,int Strange_numBerArrayThing_length,int 
         free((void*)MapThatIsSoCool<:*ReallyCo0lMapIndex:>.KeyThatIsSoC0ol);
         free((void*)MapThatIsSoCool<:*ReallyCo0lMapIndex:>.ValueThatIsSoCo0l);
     %>
+    
     free(ReallyCo0lMapIndex);
     free(MapThatIsSoCool);
     // In weak typing we trust
