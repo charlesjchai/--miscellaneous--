@@ -2,3 +2,4 @@
 .miscellaneous-committer-daemon
 *.dSYM
 /crasher/crash
+/nul/nul
