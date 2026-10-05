@@ -64,6 +64,9 @@ case "$OS" in
     *Debian*)
         echo 'debian? nahh, bro is 111825 years old'
         ;;
+    *Armbian*)
+        echo 'bro is an "aspiring" server manager :skull:'
+        ;;
     *Slackware*)
         echo 'bro wants to manage dependencies manually'
         ;;
