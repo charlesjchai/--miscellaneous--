@@ -64,7 +64,7 @@ case "$OS" in
     *Debian*)
         echo 'debian? nahh, bro is 111825 years old'
         ;;
-    *Armbian*)
+    *Armbian*|*Raspberry*|*Raspbian*|*Orange*)
         echo 'bro is an "aspiring" server manager :skull:'
         ;;
     *Slackware*)
