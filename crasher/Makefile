@@ -13,10 +13,10 @@ run: $(TARGET)
 clean:
 	rm -rf $(TARGET) *.dSYM
 
-install: $(TARGET)
-	install -d $(DESTDIR)$(PREFIX)/bin
-	install -m 755 $(TARGET) $(DESTDIR)$(PREFIX)/bin/$(TARGET)
-uninstall:
+link: $(TARGET)
+	mkdir -p $(DESTDIR)$(PREFIX)/bin
+	ln -sf $(CURDIR)/$(TARGET) $(DESTDIR)$(PREFIX)/bin/
+unlink:
 	rm -f $(DESTDIR)$(PREFIX)/bin/$(TARGET)
 
-.PHONY: all run clean install uninstall
+.PHONY: all run clean link unlink
