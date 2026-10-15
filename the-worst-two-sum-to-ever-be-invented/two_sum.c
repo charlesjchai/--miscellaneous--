@@ -1,5 +1,5 @@
-/* This is a horrible solution for Leetcode's problem "Two sum".
- i love GNU Linux
+/* This is an amazing solution for Leetcode's problem "Two sum".
+ i love GNU Linux 😀
  */
 
 #include <stddef.h>
