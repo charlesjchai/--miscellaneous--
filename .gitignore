@@ -3,3 +3,5 @@
 *.dSYM
 /crasher/crash
 /nul/nul
+build
+target
