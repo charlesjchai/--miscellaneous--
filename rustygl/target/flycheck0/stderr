@@ -1,4 +1,0 @@
-    Checking rustygl v0.1.0 (/Users/charles/Coding/Other/--miscellaneous--/rustygl)
-error: could not compile `rustygl` (bin "rustygl" test) due to 2 previous errors; 2 warnings emitted
-warning: build failed, waiting for other jobs to finish...
-error: could not compile `rustygl` (bin "rustygl") due to 2 previous errors; 2 warnings emitted
