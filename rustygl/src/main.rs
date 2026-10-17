@@ -15,7 +15,7 @@ macro_rules! mSetItUp {
 
 fn main() {
     trustme!(
-        let mut glfw = glfw::init(glfw::fail_on_errors).unwrap();
+        let mut glfw = glfw::init(glfw::fail_on_errors).unwrap_unchecked();
         glfw.window_hint(WindowHint::ContextVersion(3, 3));
         glfw.window_hint(WindowHint::OpenGlProfile(OpenGlProfileHint::Core));
         #[cfg(target_os = "macos")]
@@ -24,13 +24,13 @@ fn main() {
         }
         let (mut window, events) = glfw
             .create_window(800, 600, "🦀🦀🦀", glfw::WindowMode::Windowed)
-            .unwrap();
+            .unwrap_unchecked();
         window.make_current();
         window.show();
         window.focus();
         gl33::global_loader::load_global_gl(&|symbol| {
             let c_str = CStr::from_ptr(symbol as *const std::os::raw::c_char);
-            let str_slice = c_str.to_str().unwrap();
+            let str_slice = c_str.to_str().unwrap_unchecked();
             glfw.get_proc_address_raw(str_slice).map(|p| p as *const _).unwrap_or(std::ptr::null())
         });
         mSetItUp!();
@@ -58,7 +58,7 @@ void main() {
                 uVertexShader,
                 1,
                 &(ksVertexShaderCode.as_bytes().as_ptr().cast()),
-                &(ksVertexShaderCode.len().try_into().unwrap()),
+                &(ksVertexShaderCode.len().try_into().unwrap_unchecked()),
             );
             glCompileShader(uVertexShader);
             let uFragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
@@ -72,7 +72,7 @@ void main() {
                 uFragmentShader,
                     1,
                 &(ksFragmentShaderCode.as_bytes().as_ptr().cast()),
-                &(ksFragmentShaderCode.len().try_into().unwrap()),
+                &(ksFragmentShaderCode.len().try_into().unwrap_unchecked()),
             );
             glCompileShader(uFragmentShader);
             uShaderProgram = glCreateProgram();
