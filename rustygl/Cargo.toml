@@ -1,0 +1,9 @@
+[package]
+name = "rustygl"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+gl33 = {version = "0.2", features = ["global_loader"]}
+glfw = "0.63"
+trustme = "1"
