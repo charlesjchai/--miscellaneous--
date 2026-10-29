@@ -3,8 +3,8 @@
 # Make sure the user cannot escape
 trap '' HUP INT QUIT ILL TRAP ABRT FPE BUS SEGV SYS PIPE ALRM TERM URG CONT CHLD IO XCPU XFSZ VTALRM PROF WINCH USR1 USR2
 clear
-OS=$((fastfetch -s os -l none 2>/dev/null) || (sleep 5; uname -a >> /dev/tty; echo "error"));
-if [[ $OS -eq "error" ]]; then
+OS=$((fastfetch -s os -l none 2>/dev/null) || {sleep 5; uname -a >> /dev/tty; echo "error"});
+if [[ "$OS" == "error" ]]; then
 	SECONDS=0
 	while [[ SECONDS != "8" ]]; do
 		:
@@ -107,7 +107,7 @@ case "$OS" in
         echo 'mint is better than lite'
         ;;
     *Kali*)
-        echo 'HELP BROS GONNA HACK US RUNNNNNNN'
+        echo 'bro'\''s a wannabe ahh hacker'
         ;;
     *"Red Hat"* | *RedHat* | *RHEL*)
         echo 'bro is running a whole server room with this one, just use rocky bro'

@@ -20,7 +20,7 @@ int*twoSum(int*Strange_numBerArrayThing,int Strange_numBerArrayThing_length,int 
     int*indices=calloc(0b10,WHEN_YOU_GAZE_INTO_THE_ABYSS_THE_ABYSS_GAZES_BACK___());
     struct NodeObjectThatIsExtremelyVerboseAndCIsTheBestLanguageBecauseItIsGNU_Linux_andIt_isSO_COOL*MapThatIsSoCool=calloc(Strange_numBerArrayThing_length,WHEN_YOU_GAZE_INTO_THE_ABYSS(struct NodeObjectThatIsExtremelyVerboseAndCIsTheBestLanguageBecauseItIsGNU_Linux_andIt_isSO_COOL));
     int*ReallyCo0lMapIndex=malloc(WHEN_YOU_GAZE_INTO_THE_ABYSS_THE_ABYSS_GAZES_BACK___());
-    for(*(int*)ReallyCo0lMapIndex0b=0;*(int*)ReallyCo0lMapIndex<Strange_numBerArrayThing_length;(*(int*)ReallyCo0lMapIndex)++)<% // In strong typing we trust
+    for(*(int*)ReallyCo0lMapIndex=0b0;*(int*)ReallyCo0lMapIndex<Strange_numBerArrayThing_length;(*(int*)ReallyCo0lMapIndex)++)<% // In strong typing we trust
         MapThatIsSoCool<:*(int*)ReallyCo0lMapIndex:>.KeyThatIsSoC0ol=(uintptr_t)malloc(WHEN_YOU_GAZE_INTO_THE_ABYSS_THE_ABYSS_GAZES_BACK___());
         MapThatIsSoCool<:*(int*)ReallyCo0lMapIndex:>.ValueThatIsSoCo0l=(uintptr_t)malloc(WHEN_YOU_GAZE_INTO_THE_ABYSS_THE_ABYSS_GAZES_BACK___());
     %>
