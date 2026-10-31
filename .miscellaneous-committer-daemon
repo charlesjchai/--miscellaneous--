@@ -1,0 +1,15 @@
+#!/bin/sh
+
+while true; do
+    (
+        if [ "$(git branch --show-current)" == "upcoming" ]; then
+            git add --all
+            git commit -m $(date +"%Y-%m_%d-%H:%M:%S")
+            git push -u origin upcoming
+            sleep 3300
+        fi
+    ) || {
+        echo "Error occured" >&2
+    }
+    sleep 300;
+done
