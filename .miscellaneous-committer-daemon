@@ -3,9 +3,11 @@
 while true; do
     (
         if [ "$(git branch --show-current)" == "upcoming" ]; then
-            git add --all
-            git commit -m $(date +"%Y-%m_%d-%H:%M:%S")
-            git push -u origin upcoming
+            if [ -n "$(git status --porcelain)" ]; then
+                git add --all
+                git commit -m "$(date +"%Y-%m_%d-%H:%M:%S")"
+                git push -u origin upcoming
+            fi
             sleep 3300
         fi
     ) || {
