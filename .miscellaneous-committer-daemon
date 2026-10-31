@@ -1,19 +1,15 @@
 #!/bin/sh
-
-while true; do
-    (
-        set -e
-        if [ "$(git branch --show-current)" == "upcoming" ]; then
-            if [ -n "$(git status --porcelain)" ]; then
-                git add --all
-                git commit -m "$(date +"%Y-%m_%d-%H:%M:%S")"
-                git push -u origin upcoming
-            fi
-        else
-            echo "[LOG] Current branch is not upcoming."
+(
+    set -e
+    if [ "$(git branch --show-current)" == "upcoming" ]; then
+        if [ -n "$(git status --porcelain)" ]; then
+            git add --all
+            git commit -m "$(date +"%Y-%m_%d-%H:%M:%S")"
+            git push -u origin upcoming
         fi
-    ) || {
-        echo "[ERR] Error occurred" >&2
-    }
-    sleep 3600
-done
+    else
+        echo "[LOG] Current branch is not upcoming."
+    fi
+) || {
+    echo "[ERR] Error occurred" >&2
+} >> /tmp/miscellaneous-committer-daemon-stdout.log 2>>/tmp/miscellaneous-committer-daemon-stderr.log
