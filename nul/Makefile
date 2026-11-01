@@ -1,5 +1,5 @@
 CC ?= cc
-CFLAGS ?= -O2
+CFLAGS ?= -O3
 TARGET ?= nul
 PREFIX ?= /usr/local
 
