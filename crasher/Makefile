@@ -1,5 +1,5 @@
 CC ?= cc
-CFLAGS := -O0 -Wall -Wextra
+CFLAGS := -O0
 TARGET := crash
 PREFIX ?= /usr/local
 
