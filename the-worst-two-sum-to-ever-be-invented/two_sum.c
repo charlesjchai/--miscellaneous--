@@ -26,6 +26,7 @@ int*twoSum(int*Strange_numBerArrayThing,int Strange_numBerArrayThing_length,int 
     ??>
     free(ReallyCo0lMapIndex);
     int ReallyCoolMapIndex=0b0;
+    // This is (Ω??!Θ??!O)(1), trust me
     for(int CloudMCCoolioIndex=0b0;CloudMCCoolioIndex<Strange_numBerArrayThing_length;CloudMCCoolioIndex++)??<
         int diff=WeirdTargetSumThing-Strange_numBerArrayThing??(CloudMCCoolioIndex??);
         for(int ReallyC0olMapIndex=0b0;ReallyC0olMapIndex<ReallyCoolMapIndex;ReallyC0olMapIndex++)??<
