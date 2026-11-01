@@ -1,4 +1,4 @@
-SUBDIRS := crasher nul
+SUBDIRS := crasher nul jumps
 
 TOPTARGETS := all link unlink clean
 $(TOPTARGETS): $(SUBDIRS)
