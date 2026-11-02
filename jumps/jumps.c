@@ -4,14 +4,13 @@
 
 #include <stdio.h>
 #include <setjmp.h>
-#include <string.h>
 
 static jmp_buf one;
 static jmp_buf two;
-static int state;
+static unsigned int state;
 static struct {
     int day;
-    int state;
+    unsigned int state;
 } saveFile;
 
 #define TOLD_CHARLES (1U << 0)
@@ -35,7 +34,7 @@ main()
                          "It is Thursday.");
                 day = saveFile.day;
                 puts("[REDACTED]: You should wear your costume tomorrow.\n"
-                     "Charles: Uhh... sure I guess?"
+                     "Charles: Uhh... sure I guess?\n"
                      "[REDACTED] will remember that.");
                 state |= TOLD_CHARLES;
                 state |= EVER_TOLD_CHARLES;
@@ -66,27 +65,32 @@ main()
             if (setjmp(two) == 0) {
                 if (!(state & TOLD_CHARLES)) {
                     saveFile.state = state;
-                    puts("<< SERVER: [REDACTED] placed checkpoint 'two'. >>");
+                    puts("[REDACTED] places checkpoint 'two'.");
                 }
             } else {
-                tallputs("<< SERVER: [REDACTED] has successfully jumped to checkpoint 'two'. >>\n"
+                tallputs("[REDACTED] successfully jumps to checkpoint 'two'.\n"
                          "It is Saturday. [REDACTED] remembers telling Charles.");
-                state = saveFile.state |= EVER_TOLD_CHARLES;
+                saveFile.state |= EVER_TOLD_CHARLES;
+                state = saveFile.state;
             }
+
             if (state & TOLD_CHARLES) {
-                tallputs("<< SERVER: [REDACTED] is warping to checkpoint 'two'... >>");
+                tallputs("[REDACTED] is warping to checkpoint 'two'...");
                 longjmp(two, 0);
             }
             if (state & EVER_TOLD_CHARLES) {
                 puts("[REDACTED]: Hey Charles, your costume on Friday was very nice.\n"
-                     "Charles: Bro what, I never wore a costume on Friday, ur trippin gng 💀💀💀\n"
+                     "Charles: Bro what, I never wore a costume on Friday, ur trippin gng\n"
+                     "\t -^\n"
+                     "\t(oO)\n"
+                     "\t(__)\n\n"
                      "[REDACTED]: Yeah sure, Greasy Joe.");
             }
             break;
         case 7:
             tallputs("--- Today is Sunday, day of the sun. ---");
-            if (!(state & TOLD_CHARLES || state & EVER_TOLD_CHARLES)) {
-                tallputs("<< SERVER: [REDACTED] is warping to checkpoint 'one'... >>");
+            if (!(state & (TOLD_CHARLES | EVER_TOLD_CHARLES))) {
+                tallputs("[REDACTED] is warping to checkpoint 'one'...");
                 longjmp(one, 0);
             }
             puts("Charles: Bro, what was that all about??");
