@@ -1,5 +1,6 @@
 /* 1980s developers were CRAZY, <setjmp.h> could legitimately
-   become the topic of a blockbuster sci-fi film. */
+   become the topic of a blockbuster sci-fi film. Program ONLY
+   compiles in C89. */
 
 #include <stdio.h>
 #include <setjmp.h>
@@ -30,17 +31,18 @@ main()
                  "Charles: Hold on, WHERE IS ZE PHONE??");
 
             if (setjmp(one) != 0) {
-                tallputs("<< SERVER: [REDACTED] has successfully jumped to checkpoint 'one'. >>\n"
+                tallputs("[REDACTED] successfully jumps to checkpoint 'one'.\n"
                          "It is Thursday.");
                 day = saveFile.day;
                 puts("[REDACTED]: You should wear your costume tomorrow.\n"
-                     "Charles: Uhh... sure I guess?");
+                     "Charles: Uhh... sure I guess?"
+                     "[REDACTED] will remember that.");
                 state |= TOLD_CHARLES;
                 state |= EVER_TOLD_CHARLES;
                 break;
             }
             saveFile.day = day;
-            tallputs("<< SERVER: [REDACTED] placed checkpoint 'one'. >>");
+            tallputs("[REDACTED] places checkpoint 'one'.");
             puts("[REDACTED]: So, what's your costume?\n"
                  "Charles: Oh, just some guy with spiky hair.");
             break;
@@ -62,11 +64,14 @@ main()
             tallputs("--- Today is Saturday, day of the candy hoarding. ---");
 
             if (setjmp(two) == 0) {
-                puts("<< SERVER: [REDACTED] placed checkpoint 'two'. >>");
+                if (!(state & TOLD_CHARLES)) {
+                    saveFile.state = state;
+                    puts("<< SERVER: [REDACTED] placed checkpoint 'two'. >>");
+                }
             } else {
                 tallputs("<< SERVER: [REDACTED] has successfully jumped to checkpoint 'two'. >>\n"
-                         "It is Saturday."); 
-                state &= ~TOLD_CHARLES;
+                         "It is Saturday. [REDACTED] remembers telling Charles.");
+                state = saveFile.state |= EVER_TOLD_CHARLES;
             }
             if (state & TOLD_CHARLES) {
                 tallputs("<< SERVER: [REDACTED] is warping to checkpoint 'two'... >>");
