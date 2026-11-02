@@ -8,6 +8,10 @@
 static jmp_buf one;
 static jmp_buf two;
 static int state;
+static struct {
+    int day;
+    int state;
+} saveFile;
 
 #define TOLD_CHARLES (1U << 0)
 #define EVER_TOLD_CHARLES (1U << 1)
@@ -24,16 +28,18 @@ main()
             puts("Charles: Dude no way, is school canceled??\n"
                  "[REDACTED]: YEAHHHHHHHHHH\n"
                  "Charles: Hold on, WHERE IS ZE PHONE??");
+
             if (setjmp(one) != 0) {
                 tallputs("<< SERVER: [REDACTED] has successfully jumped to checkpoint 'one'. >>\n"
                          "It is Thursday.");
-                day = 4;
+                day = saveFile.day;
                 puts("[REDACTED]: You should wear your costume tomorrow.\n"
                      "Charles: Uhh... sure I guess?");
                 state |= TOLD_CHARLES;
                 state |= EVER_TOLD_CHARLES;
                 break;
             }
+            saveFile.day = day;
             tallputs("<< SERVER: [REDACTED] placed checkpoint 'one'. >>");
             puts("[REDACTED]: So, what's your costume?\n"
                  "Charles: Oh, just some guy with spiky hair.");
@@ -54,12 +60,12 @@ main()
             break;
         case 6:
             tallputs("--- Today is Saturday, day of the candy hoarding. ---");
+
             if (setjmp(two) == 0) {
                 puts("<< SERVER: [REDACTED] placed checkpoint 'two'. >>");
             } else {
                 tallputs("<< SERVER: [REDACTED] has successfully jumped to checkpoint 'two'. >>\n"
                          "It is Saturday."); 
-                day = 6;
                 state &= ~TOLD_CHARLES;
             }
             if (state & TOLD_CHARLES) {
