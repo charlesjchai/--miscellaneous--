@@ -1,6 +1,5 @@
 /* 1980s developers were CRAZY, <setjmp.h> could legitimately
-   become the topic of a blockbuster sci-fi film. Program ONLY
-   compiles in C89. */
+   become the topic of a blockbuster sci-fi film. */
 
 #include <stdio.h>
 #include <setjmp.h>
@@ -76,7 +75,7 @@ main()
 
             if (state & TOLD_CHARLES) {
                 tallputs("[REDACTED] is warping to checkpoint 'two'...");
-                longjmp(two, 0);
+                longjmp(two, 1);
             }
             if (state & EVER_TOLD_CHARLES) {
                 puts("[REDACTED]: Hey Charles, your costume on Friday was very nice.\n"
@@ -91,7 +90,7 @@ main()
             tallputs("--- Today is Sunday, day of the sun. ---");
             if (!(state & (TOLD_CHARLES | EVER_TOLD_CHARLES))) {
                 tallputs("[REDACTED] is warping to checkpoint 'one'...");
-                longjmp(one, 0);
+                longjmp(one, 1);
             }
             puts("Charles: Bro, what was that all about??");
             break;
