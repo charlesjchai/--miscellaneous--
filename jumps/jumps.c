@@ -80,7 +80,7 @@ main()
             if (state & EVER_TOLD_CHARLES) {
                 puts("[REDACTED]: Hey Charles, your costume on Friday was very nice.\n"
                      "Charles: Bro what, I never wore a costume on Friday, ur trippin gng\n"
-                     "\t -^\n"
+                     "\t _^\n"
                      "\t(oO)\n"
                      "\t(__)\n\n"
                      "[REDACTED]: Yeah sure, Greasy Joe.");
