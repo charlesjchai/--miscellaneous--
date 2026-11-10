@@ -4,7 +4,7 @@
 trap '' HUP INT QUIT ILL TRAP ABRT FPE BUS SEGV SYS PIPE ALRM TERM URG CONT CHLD IO XCPU XFSZ VTALRM PROF WINCH USR1 USR2
 clear
 OS=$( (fastfetch -s os -l none 2>/dev/null) || { sleep 5; uname -a > /dev/tty; echo "error"; })
-if [[ "$OS" == "error" ]]; then
+if [ "$OS" == "error" ]; then
 	SECONDS=0
 	while [ "$SECONDS" != "8" ]; do
 		:
